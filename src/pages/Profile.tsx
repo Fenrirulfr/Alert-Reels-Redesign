@@ -698,6 +698,35 @@ export function Profile() {
 
   return (
     <div className="min-h-screen bg-brand-bg flex pt-20 transition-colors duration-300">
+      {/* Toast Notification - Accessible Aria-Live Region */}
+      <div 
+        aria-live="polite" 
+        className="fixed bottom-8 right-8 z-[100] flex flex-col gap-2"
+      >
+        <AnimatePresence>
+          {showNotification && (
+            <motion.div
+              initial={{ opacity: 0, x: 20, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 20, scale: 0.9 }}
+              className="bg-brand-surface border border-brand-yellow/30 p-4 rounded-xl shadow-2xl flex items-center gap-3 min-w-[280px]"
+            >
+              <div className="bg-brand-yellow/20 p-2 rounded-lg">
+                <Check className="w-4 h-4 text-brand-yellow" />
+              </div>
+              <p className="font-sans text-[11px] font-black uppercase text-brand-text tracking-widest">{showNotification}</p>
+              <button 
+                onClick={() => setShowNotification(null)}
+                className="ml-auto text-brand-text-muted hover:text-white"
+                aria-label="Dismiss notification"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
       {/* Sidebar - Hidden on mobile, shown on desktop */}
       <aside className="hidden lg:flex w-64 bg-brand-surface/90 backdrop-blur-xl border-r border-brand-border flex-col py-6 fixed left-0 top-16 bottom-0 z-40">
         <div className="px-6 mb-8">

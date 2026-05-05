@@ -99,32 +99,36 @@ export function Checkout() {
                   <div className="p-8 space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2 md:col-span-2">
-                        <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Site Name / Facility ID</label>
+                        <label htmlFor="site-name" className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Site Name / Facility ID</label>
                         <input 
+                          id="site-name"
                           className="w-full bg-black/40 border border-white/10 text-white rounded-lg px-4 py-4 focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all placeholder:text-white/10" 
                           placeholder="e.g. North Basin Facility-04" 
                           type="text"
                         />
                       </div>
                       <div className="space-y-2 md:col-span-2">
-                        <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Full Street Address</label>
+                        <label htmlFor="address" className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Full Street Address</label>
                         <input 
+                          id="address"
                           className="w-full bg-black/40 border border-white/10 text-white rounded-lg px-4 py-4 focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all placeholder:text-white/10" 
                           placeholder="422 Industrial Way, Port of Houston" 
                           type="text"
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Gate Code / Loading Dock</label>
+                        <label htmlFor="gate-code" className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Gate Code / Loading Dock</label>
                         <input 
+                          id="gate-code"
                           className="w-full bg-black/40 border border-white/10 text-white rounded-lg px-4 py-4 focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all placeholder:text-white/10" 
                           placeholder="Dock 7-B" 
                           type="text"
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Zip / Postal Code</label>
+                        <label htmlFor="zip" className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Zip / Postal Code</label>
                         <input 
+                          id="zip"
                           className="w-full bg-black/40 border border-white/10 text-white rounded-lg px-4 py-4 focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all placeholder:text-white/10" 
                           placeholder="77001" 
                           type="text"
@@ -139,16 +143,18 @@ export function Checkout() {
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">On-Site Manager Name</label>
+                          <label htmlFor="manager" className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">On-Site Manager Name</label>
                           <input 
+                            id="manager"
                             className="w-full bg-black/40 border border-white/10 text-white rounded-lg px-4 py-4 focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all placeholder:text-white/10" 
                             placeholder="Sarah Jenkins" 
                             type="text"
                           />
                         </div>
                         <div className="space-y-2">
-                          <label className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">24/7 Logistics Phone</label>
+                          <label htmlFor="phone" className="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">24/7 Logistics Phone</label>
                           <input 
+                            id="phone"
                             className="w-full bg-black/40 border border-white/10 text-white rounded-lg px-4 py-4 focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all placeholder:text-white/10" 
                             placeholder="+1 (555) 000-0000" 
                             type="tel"

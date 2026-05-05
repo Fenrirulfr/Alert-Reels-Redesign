@@ -123,8 +123,9 @@ export default function ProductDetail() {
             <div className="space-y-4 mb-10">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted px-1">Cord Length</label>
+                  <label htmlFor="cord-length" className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted px-1">Cord Length</label>
                   <select 
+                    id="cord-length"
                     value={selectedLength}
                     onChange={(e) => setSelectedLength(e.target.value)}
                     className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg px-4 py-3 text-xs font-bold focus:outline-none focus:border-brand-yellow cursor-pointer appearance-none"
@@ -134,8 +135,9 @@ export default function ProductDetail() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted px-1">Mounting</label>
+                  <label htmlFor="mounting-type" className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted px-1">Mounting</label>
                   <select 
+                    id="mounting-type"
                     value={selectedMounting}
                     onChange={(e) => setSelectedMounting(e.target.value)}
                     className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg px-4 py-3 text-xs font-bold focus:outline-none focus:border-brand-yellow cursor-pointer appearance-none"
@@ -158,6 +160,7 @@ export default function ProductDetail() {
                     selectedMounting
                   })}
                   className="w-full bg-brand-yellow text-black font-black uppercase tracking-widest text-xs py-5 rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xl shadow-brand-yellow/10"
+                  aria-label={`Add ${product.name} to cart`}
                 >
                   <ShoppingCart className="w-4 h-4" /> Add to Order
                 </button>
@@ -175,6 +178,7 @@ export default function ProductDetail() {
                     setIsCartOpen(true);
                   }}
                   className="w-full bg-brand-surface border border-brand-border text-brand-text font-black uppercase tracking-widest text-xs py-4 rounded-lg hover:bg-brand-bg active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                  aria-label={`Buy ${product.name} now`}
                 >
                   Buy Now
                 </button>
@@ -185,6 +189,8 @@ export default function ProductDetail() {
             <div className="border border-brand-border rounded-xl overflow-hidden bg-brand-surface">
               <button 
                 onClick={() => setIsSpecsOpen(!isSpecsOpen)}
+                aria-expanded={isSpecsOpen}
+                aria-controls="tech-specs-panel"
                 className="w-full flex items-center justify-between p-5 text-left hover:bg-brand-bg/50 transition-colors"
               >
                 <span className="text-[10px] font-black uppercase tracking-widest text-brand-text">Technical Specifications</span>
@@ -194,6 +200,7 @@ export default function ProductDetail() {
               <AnimatePresence>
                 {isSpecsOpen && (
                   <motion.div 
+                    id="tech-specs-panel"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

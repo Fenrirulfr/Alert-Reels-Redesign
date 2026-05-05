@@ -144,21 +144,42 @@ export function Products() {
             
             {/* Category */}
             <div className="mb-8">
-              <h4 className="text-brand-text-muted text-sm mb-4">CATEGORY</h4>
+              <h4 className="text-brand-text-muted text-sm mb-4 font-bold uppercase tracking-widest">Category</h4>
               <div className="flex flex-col gap-3">
                 {CATEGORIES.map(category => {
                   const isSelected = selectedCategories.includes(category);
+                  const id = `category-${category.toLowerCase().replace(/ /g, '-')}`;
                   return (
-                    <label key={category} className="flex items-center gap-3 cursor-pointer group" onClick={(e) => { e.preventDefault(); toggleCategory(category); }}>
-                      <div className={cn("w-5 h-5 rounded-[4px] border flex items-center justify-center transition-colors", isSelected ? "bg-brand-yellow border-brand-yellow" : "border-brand-border group-hover:border-brand-border0")}>
-                        {isSelected && (
-                          <motion.svg initial={{ scale: 0 }} animate={{ scale: 1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 3L4.5 8.5L2 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          </motion.svg>
-                        )}
+                    <div key={category} className="flex items-center gap-3 group">
+                      <div className="relative flex items-center justify-center">
+                        <input 
+                          type="checkbox"
+                          id={id}
+                          checked={isSelected}
+                          onChange={() => toggleCategory(category)}
+                          className="sr-only"
+                        />
+                        <label 
+                          htmlFor={id}
+                          className={cn(
+                            "w-5 h-5 rounded-[4px] border flex items-center justify-center transition-colors cursor-pointer focus-within:ring-2 focus-within:ring-brand-blue", 
+                            isSelected ? "bg-brand-yellow border-brand-yellow" : "border-brand-border group-hover:border-brand-border shadow-sm"
+                          )}
+                        >
+                          {isSelected && (
+                            <motion.svg initial={{ scale: 0 }} animate={{ scale: 1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10 3L4.5 8.5L2 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </motion.svg>
+                          )}
+                        </label>
                       </div>
-                      <span className={cn("text-sm transition-colors", isSelected ? "text-brand-yellow font-medium group-hover:text-brand-yellow/80" : "text-brand-text-muted group-hover:text-brand-text")}>{category}</span>
-                    </label>
+                      <label 
+                        htmlFor={id}
+                        className={cn("text-sm transition-colors cursor-pointer font-sans", isSelected ? "text-brand-yellow font-medium group-hover:text-brand-yellow/80" : "text-brand-text-muted group-hover:text-brand-text")}
+                      >
+                        {category}
+                      </label>
+                    </div>
                   );
                 })}
               </div>
@@ -166,36 +187,60 @@ export function Products() {
 
             {/* Price Range */}
             <div className="mb-8">
-              <h4 className="text-brand-text-muted text-sm mb-4">PRICE RANGE</h4>
+              <h4 className="text-brand-text-muted text-sm mb-4 font-bold uppercase tracking-widest">Price Range</h4>
               <div className="px-2">
                 <div className="h-[2px] bg-white/20 w-full relative mb-6">
                   <motion.div layout className="absolute left-0 top-0 bottom-0 w-1/3 bg-brand-yellow"></motion.div>
-                  <motion.div layout className="absolute left-1/3 top-1/2 -translate-y-1/2 w-3 h-3 bg-brand-yellow rounded-full shadow-brand-shadow cursor-grab active:cursor-grabbing"></motion.div>
+                  <button 
+                    aria-label="Adjust price range"
+                    className="absolute left-1/3 top-1/2 -translate-y-1/2 w-4 h-4 bg-brand-yellow rounded-full shadow-brand-shadow cursor-grab active:cursor-grabbing focus:ring-2 focus:ring-brand-blue"
+                  ></button>
                 </div>
               </div>
               <div className="flex justify-between items-center gap-4">
-                <div className="bg-white/5 px-3 py-2 text-brand-text text-sm border border-brand-border w-full text-center hover:bg-white/10 transition-colors cursor-pointer">$100</div>
-                <div className="bg-white/5 px-3 py-2 text-brand-text text-sm border border-brand-border w-full text-center hover:bg-white/10 transition-colors cursor-pointer">$5,000+</div>
+                <div className="bg-brand-surface px-3 py-2 text-brand-text text-sm border border-brand-border w-full text-center hover:bg-white/10 transition-colors cursor-pointer font-medium">$100</div>
+                <div className="bg-brand-surface px-3 py-2 text-brand-text text-sm border border-brand-border w-full text-center hover:bg-white/10 transition-colors cursor-pointer font-medium">$5,000+</div>
               </div>
             </div>
 
             {/* Brand */}
             <div>
-              <h4 className="text-brand-text-muted text-sm mb-4">BRAND</h4>
+              <h4 className="text-brand-text-muted text-sm mb-4 font-bold uppercase tracking-widest">Brand</h4>
               <div className="flex flex-col gap-3">
                 {BRANDS.map(brand => {
                   const isSelected = selectedBrands.includes(brand);
+                  const id = `brand-${brand.toLowerCase().replace(/ /g, '-')}`;
                   return (
-                    <label key={brand} className="flex items-center gap-3 cursor-pointer group" onClick={(e) => { e.preventDefault(); toggleBrand(brand); }}>
-                      <div className={cn("w-5 h-5 rounded-[4px] border flex items-center justify-center transition-colors", isSelected ? "bg-brand-yellow border-brand-yellow" : "border-brand-border group-hover:border-brand-border0")}>
-                        {isSelected && (
-                          <motion.svg initial={{ scale: 0 }} animate={{ scale: 1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 3L4.5 8.5L2 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          </motion.svg>
-                        )}
+                    <div key={brand} className="flex items-center gap-3 group">
+                      <div className="relative flex items-center justify-center">
+                        <input 
+                          type="checkbox"
+                          id={id}
+                          checked={isSelected}
+                          onChange={() => toggleBrand(brand)}
+                          className="sr-only"
+                        />
+                        <label 
+                          htmlFor={id}
+                          className={cn(
+                            "w-5 h-5 rounded-[4px] border flex items-center justify-center transition-colors cursor-pointer focus-within:ring-2 focus-within:ring-brand-blue", 
+                            isSelected ? "bg-brand-yellow border-brand-yellow" : "border-brand-border group-hover:border-brand-border shadow-sm"
+                          )}
+                        >
+                          {isSelected && (
+                            <motion.svg initial={{ scale: 0 }} animate={{ scale: 1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10 3L4.5 8.5L2 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </motion.svg>
+                          )}
+                        </label>
                       </div>
-                      <span className={cn("text-sm transition-colors", isSelected ? "text-brand-yellow font-medium group-hover:text-brand-yellow/80" : "text-brand-text-muted group-hover:text-brand-text")}>{brand}</span>
-                    </label>
+                      <label 
+                        htmlFor={id}
+                        className={cn("text-sm transition-colors cursor-pointer font-sans", isSelected ? "text-brand-yellow font-medium group-hover:text-brand-yellow/80" : "text-brand-text-muted group-hover:text-brand-text")}
+                      >
+                        {brand}
+                      </label>
+                    </div>
                   );
                 })}
               </div>

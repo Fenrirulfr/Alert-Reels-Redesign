@@ -26,8 +26,8 @@
     /* Light mode */
     --color-brand-bg-value: #FFFFFF;
     --color-brand-surface-value: #F8F9FA;
-    --color-brand-text-value: #333333;
-    --color-brand-text-muted-value: #666666;
+    --color-brand-text-value: #1A1A1A;
+    --color-brand-text-muted-value: #555555;
     --color-brand-border-value: #E5E5E5;
     --color-brand-shadow-value: 0px 4px 20px rgba(0, 0, 0, 0.05);
   }
@@ -36,9 +36,14 @@
     --color-brand-bg-value: #0B0C10;
     --color-brand-surface-value: #131313;
     --color-brand-text-value: #FFFFFF;
-    --color-brand-text-muted-value: rgba(255, 255, 255, 0.6);
+    --color-brand-text-muted-value: rgba(255, 255, 255, 0.75);
     --color-brand-border-value: rgba(255, 255, 255, 0.1);
     --color-brand-shadow-value: 0px 4px 50px rgba(252, 227, 0, 0.05);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-brand-blue-value);
+    outline-offset: 4px;
   }
 
   body {

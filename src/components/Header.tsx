@@ -63,6 +63,7 @@ export function Header() {
                  key={item.name}
                  to={item.path} 
                  className={`${isActive ? 'text-brand-yellow border-b-2 border-brand-yellow pb-1' : 'text-brand-text-muted hover:text-brand-yellow pb-1 border-b-2 border-transparent'} font-medium transition-all duration-200 uppercase tracking-widest text-[11px] active:scale-95`}
+                 aria-current={isActive ? 'page' : undefined}
                >
                  {item.name}
                </Link>
