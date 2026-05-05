@@ -21,7 +21,7 @@ export function Brands() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 z-0 opacity-20"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#131313]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-bg"></div>
           <img 
             className="w-full h-full object-cover" 
             alt="A high-contrast industrial interior showcasing heavy steel beams and yellow safety equipment in a precision engineering workshop." 

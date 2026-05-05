@@ -19,7 +19,7 @@ export function Distributors() {
             alt="Industrial warehouse at night" 
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0BpHvK62OuaGkcCADJrnvo5FxsAbT0FPBrKzd4nU5cbUL9D2yyx7Wgv8IZzjaZJzvebFAZ3CzLIudzTZohiQRz8Grrzlp2dZNVvnkMvcmhrawzIOKcLw2v2JTj1ZYLA_UjXHuziQLO3vAV7PfOWISl8NWtFIMSZF6r1FQTbzXn7rORlTtfMJLh6Hh6LvJSK09v3CUhR866puE3WnnypSoI2b8vr2HQlmnEw1gaH5O472NVjhSSj-yrGTWoBCtdm9WEQN-mJFQK0U"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C10] via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-black/40 to-transparent"></div>
         </motion.div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 w-full">
@@ -87,7 +87,7 @@ export function Distributors() {
               <div className="flex-1 relative shadow-brand-shadow">
                 <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-brand-blue" />
                 <input 
-                  className="w-full bg-white backdrop-blur-md border border-[#333333] text-[#333333] py-4 pl-12 pr-4 focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-300" 
+                   className="w-full bg-brand-surface border border-brand-border text-brand-text py-4 pl-12 pr-4 focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-300" 
                   placeholder="SEARCH BY CITY, COUNTRY OR POSTAL CODE" 
                   type="text"
                 />

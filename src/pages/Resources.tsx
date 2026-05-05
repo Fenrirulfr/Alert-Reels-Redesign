@@ -18,7 +18,7 @@ export function Resources() {
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" 
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBESnTusK1HhNjOlw4LAiaNjvQyzGGnCk47SA19cYHSb4yet6EfedKBU4Fngj1mPDl-anzde9ee-_5ujRsN9Uk4YttEoDa2LH-liZ4oRHQpJTNk84sy-OyCyTn3E13lwIm8G98Ktolc9yrzMhsdRpkqL_7rq9xG8bG36n9WAt08vdqCKbtiLq7pFD49K609dZ-7KcIg78WCSzDSv8rGxX-NVvWI9nUnGV3-ozLft7B4ug405LOc-WGv6HRXZLw7laqgZzzfvXmSfEw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C10] via-[#0B0C10]/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/60 to-transparent"></div>
           
           <div className="absolute bottom-0 left-0 p-8 md:p-12 max-w-3xl">
             <span className="bg-brand-yellow text-black px-3 py-1 font-bold text-[10px] uppercase tracking-widest mb-6 inline-block">Industry Insights</span>
@@ -26,7 +26,7 @@ export function Resources() {
             <p className="text-lg text-brand-text-muted mb-8 leading-relaxed line-clamp-2 md:line-clamp-none">
               Exploring how automated reel systems are reducing site accidents by 40% through integrated alert technology and industrial-grade glassmorphism interfaces.
             </p>
-            <button className="flex items-center gap-2 bg-white text-black font-bold uppercase tracking-widest text-xs px-8 py-4 active:scale-95 hover:bg-brand-yellow transition-all cursor-pointer">
+            <button className="flex items-center gap-2 bg-brand-surface border border-brand-border text-brand-text font-bold uppercase tracking-widest text-xs px-8 py-4 active:scale-95 hover:bg-brand-yellow hover:text-black transition-all cursor-pointer">
               Read Full Report
               <ArrowRight className="w-4 h-4" />
             </button>

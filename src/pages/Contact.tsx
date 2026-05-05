@@ -70,7 +70,7 @@ export function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="relative group">
                   <input 
-                    className="w-full bg-white border rounded-lg border-brand-border px-4 focus:ring-1 focus:ring-[#FF8C00] border-brand-border focus:border-[#FF8C00] focus:ring-0 text-brand-text py-4 transition-all outline-none peer placeholder-transparent" 
+                    className="w-full bg-brand-surface border rounded-lg border-brand-border px-4 focus:ring-1 focus:ring-[#FF8C00] border-brand-border focus:border-[#FF8C00] focus:ring-0 text-brand-text py-4 transition-all outline-none peer placeholder-transparent" 
                     id="full_name" 
                     placeholder="Full Name" 
                     required 
@@ -85,7 +85,7 @@ export function Contact() {
                 </div>
                 <div className="relative group">
                   <input 
-                    className="w-full bg-white border rounded-lg border-brand-border px-4 focus:ring-1 focus:ring-[#FF8C00] border-brand-border focus:border-[#FF8C00] focus:ring-0 text-brand-text py-4 transition-all outline-none peer placeholder-transparent" 
+                    className="w-full bg-brand-surface border rounded-lg border-brand-border px-4 focus:ring-1 focus:ring-[#FF8C00] border-brand-border focus:border-[#FF8C00] focus:ring-0 text-brand-text py-4 transition-all outline-none peer placeholder-transparent" 
                     id="email_address" 
                     placeholder="Work Email" 
                     required 
@@ -102,7 +102,7 @@ export function Contact() {
               
               <div className="relative group">
                 <select 
-                  className="w-full bg-white border rounded-lg border-brand-border px-4 focus:ring-1 focus:ring-[#FF8C00] border-brand-border focus:border-[#FF8C00] focus:ring-0 text-brand-text py-4 transition-all outline-none peer appearance-none cursor-pointer [&>option]:bg-brand-surface rounded-lg" 
+                  className="w-full bg-brand-surface border rounded-lg border-brand-border px-4 focus:ring-1 focus:ring-[#FF8C00] border-brand-border focus:border-[#FF8C00] focus:ring-0 text-brand-text py-4 transition-all outline-none peer appearance-none cursor-pointer [&>option]:bg-brand-surface rounded-lg" 
                   id="subject" 
                   required
                   defaultValue=""
@@ -124,7 +124,7 @@ export function Contact() {
 
               <div className="relative group">
                 <textarea 
-                  className="w-full bg-white border rounded-lg border-brand-border px-4 focus:ring-1 focus:ring-[#FF8C00] border-brand-border focus:border-[#FF8C00] focus:ring-0 text-brand-text py-4 transition-all outline-none peer placeholder-transparent resize-none" 
+                  className="w-full bg-brand-surface border rounded-lg border-brand-border px-4 focus:ring-1 focus:ring-[#FF8C00] border-brand-border focus:border-[#FF8C00] focus:ring-0 text-brand-text py-4 transition-all outline-none peer placeholder-transparent resize-none" 
                   id="message" 
                   placeholder="Transmission Details" 
                   required 
@@ -159,7 +159,7 @@ export function Contact() {
               className="w-full h-full object-cover" 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtKIvszE88Sxyet7pnzHU6uW_1Yp3MzFX1vM220UCR4f8koJ-MLWPPUfygTgWv0JmJy-0hLDW5YqC9xFEIVnJ-us_zzWpQQgfMIGGS_ZHXJYrYCYo-rDxiZ0m_QJsJqM4UM2ctet74XdNIy78brynVMwsk7qcWqaUFA_XoVfCbA1sNnCKAekn4DsRHCE8ls36jOkBNNndZDsLo3K_ksGNCgm7guDYrk8c_5lvq08Eo9v2LWKqHa4zxdygeELh3Zs0viyv2wLc0gNU"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent"></div>
           </div>
           
           <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center -mt-24 relative z-10">

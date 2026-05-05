@@ -14,7 +14,7 @@ export function Solutions() {
           className="absolute inset-0 z-0"
         >
           <img className="w-full h-full object-cover opacity-30 grayscale" alt="Industrial facility atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1PECwbuznEmjOi-WveY4UwSe-S8KaaRhahO_4X865C8s2D7Q4as6ubTCLq4Bls8BjfZbFspaaW-0sOFO99OnJezzOBhrrZKYMbyg84l_uUZCIN5ixI2i6IWNMBGI4UGrP32OcczC1pbZWOzUauI3-XI6azty-xZobS_cQY5sZPQ6wIq6ry_vC4JE-Zc6peVFMW84WyHQAtGGsWffHF-U3dXYsIgJW49x9Z8OJO85so9F8x_7yjjlKOGTYoetE9bzmzFwpMJ_FPvU"/>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#131313] via-[#131313]/90 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-bg via-brand-bg/90 to-transparent"></div>
         </motion.div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
@@ -74,26 +74,26 @@ export function Solutions() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="font-bold text-[10px] text-brand-text-muted uppercase tracking-widest">Full Name</label>
-                  <input className="w-full bg-white border border-[#333333] text-[#333333] rounded-lg  p-3 text-brand-text focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none transition-all placeholder:text-[#666666] text-sm" placeholder="John Doe" type="text"/>
+                  <input className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg p-3 focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none transition-all placeholder:text-brand-text-muted text-sm" placeholder="John Doe" type="text"/>
                 </div>
                 <div className="space-y-2">
                   <label className="font-bold text-[10px] text-brand-text-muted uppercase tracking-widest">Company Email</label>
-                  <input className="w-full bg-white border border-[#333333] text-[#333333] rounded-lg  p-3 text-brand-text focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none transition-all placeholder:text-[#666666] text-sm" placeholder="name@industry.com" type="email"/>
+                  <input className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg p-3 focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none transition-all placeholder:text-brand-text-muted text-sm" placeholder="name@industry.com" type="email"/>
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="font-bold text-[10px] text-brand-text-muted uppercase tracking-widest">Industry Type</label>
-                <select className="w-full bg-white border border-[#333333] text-[#333333] rounded-lg  p-3 text-brand-text-muted focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none transition-all text-sm appearance-none">
-                  <option>Aerospace & Defense</option>
-                  <option>Automotive Manufacturing</option>
-                  <option>Energy & Utilities</option>
-                  <option>Medical Facilities</option>
-                  <option>Other</option>
+                <select className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg p-3 focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none transition-all text-sm appearance-none">
+                  <option className="bg-brand-surface text-brand-text">Aerospace & Defense</option>
+                  <option className="bg-brand-surface text-brand-text">Automotive Manufacturing</option>
+                  <option className="bg-brand-surface text-brand-text">Energy & Utilities</option>
+                  <option className="bg-brand-surface text-brand-text">Medical Facilities</option>
+                  <option className="bg-brand-surface text-brand-text">Other</option>
                 </select>
               </div>
               <div className="space-y-2">
                 <label className="font-bold text-[10px] text-brand-text-muted uppercase tracking-widest">Project Details</label>
-                <textarea className="w-full bg-white border border-[#333333] text-[#333333] rounded-lg  p-3 text-brand-text focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none transition-all placeholder:text-[#666666] text-sm resize-none" placeholder="Describe your specific requirements..." rows={4}></textarea>
+                <textarea className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg p-3 focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none transition-all placeholder:text-brand-text-muted text-sm resize-none" placeholder="Describe your specific requirements..." rows={4}></textarea>
               </div>
               <motion.button 
                 whileHover={{ scale: 1.02 }}
@@ -148,9 +148,9 @@ export function Solutions() {
                     <h3 className="font-bold text-2xl text-brand-text mb-3 tracking-tight">Diagnostic Consultation</h3>
                     <p className="text-brand-text-muted leading-relaxed text-sm">Our engineers conduct a comprehensive audit of your operational environment, identifying power access points, safety hazards, and spatial constraints.</p>
                   </div>
-                  <div className="bg-brand-surface rounded-lg backdrop-blur-xl p-5 rounded-lg  border-l-4 border-brand-yellow group-hover:bg-brand-surface rounded-lg transition-colors">
+                  <div className="bg-brand-surface rounded-lg backdrop-blur-xl p-5 rounded-lg  border-l-4 border-brand-yellow group-hover:bg-brand-surface transition-colors">
                     <span className="font-bold text-[10px] text-brand-yellow block mb-2 uppercase tracking-widest">Deliverable</span>
-                    <p className="font-semibold text-white/90 text-sm">Site Efficiency Report & Safety Mapping</p>
+                    <p className="font-semibold text-brand-text text-sm">Site Efficiency Report & Safety Mapping</p>
                   </div>
                 </div>
               </motion.div>

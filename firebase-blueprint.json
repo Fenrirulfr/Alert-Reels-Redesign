@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information for industrial fleet management.",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "description": "Full name of the user" },
+        "email": { "type": "string", "description": "Email address of the user" },
+        "phoneNumber": { "type": "string", "description": "Contact phone number" },
+        "organization": { "type": "string", "description": "Organization or unit name" },
+        "role": { "type": "string", "description": "Role within the organization" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Account creation timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp" }
+      },
+      "required": ["fullName", "email"]
+    },
+    "Certification": {
+      "title": "Certification",
+      "description": "Safety or technical certification held by the user.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Name of the certification" },
+        "expiryDate": { "type": "string", "description": "Expiry date or status" },
+        "type": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "pending", "expired"] }
+      }
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Main user documents containing profile and enterprise settings."
+    },
+    "users/{userId}/certifications/{certId}": {
+      "schema": "Certification",
+      "description": "Sub-collection for industrial certifications."
+    }
+  }
+}
