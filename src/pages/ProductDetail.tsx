@@ -14,10 +14,15 @@ import {
 } from 'lucide-react';
 import { PRODUCTS as products } from './Products';
 
+import { useCart } from '../components/CartContext';
+
 export default function ProductDetail() {
   const { id } = useParams();
   const [activeImage, setActiveImage] = useState(0);
   const [isSpecsOpen, setIsSpecsOpen] = useState(true);
+  const [selectedLength, setSelectedLength] = useState('50 Feet (Standard)');
+  const [selectedMounting, setSelectedMounting] = useState('Wall / Ceiling');
+  const { addToCart, setIsCartOpen } = useCart();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -119,14 +124,22 @@ export default function ProductDetail() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted px-1">Cord Length</label>
-                  <select className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg px-4 py-3 text-xs font-bold focus:outline-none focus:border-brand-yellow cursor-pointer appearance-none">
+                  <select 
+                    value={selectedLength}
+                    onChange={(e) => setSelectedLength(e.target.value)}
+                    className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg px-4 py-3 text-xs font-bold focus:outline-none focus:border-brand-yellow cursor-pointer appearance-none"
+                  >
                     <option>50 Feet (Standard)</option>
                     <option>100 Feet (+ $250.00)</option>
                   </select>
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted px-1">Mounting</label>
-                  <select className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg px-4 py-3 text-xs font-bold focus:outline-none focus:border-brand-yellow cursor-pointer appearance-none">
+                  <select 
+                    value={selectedMounting}
+                    onChange={(e) => setSelectedMounting(e.target.value)}
+                    className="w-full bg-brand-surface border border-brand-border text-brand-text rounded-lg px-4 py-3 text-xs font-bold focus:outline-none focus:border-brand-yellow cursor-pointer appearance-none"
+                  >
                     <option>Wall / Ceiling</option>
                     <option>I-Beam Clamp</option>
                   </select>
@@ -134,11 +147,36 @@ export default function ProductDetail() {
               </div>
 
               <div className="flex flex-col gap-3">
-                <button className="w-full bg-brand-yellow text-black font-black uppercase tracking-widest text-xs py-5 rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xl shadow-brand-yellow/10">
+                <button 
+                  onClick={() => addToCart({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1,
+                    selectedLength,
+                    selectedMounting
+                  })}
+                  className="w-full bg-brand-yellow text-black font-black uppercase tracking-widest text-xs py-5 rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xl shadow-brand-yellow/10"
+                >
                   <ShoppingCart className="w-4 h-4" /> Add to Order
                 </button>
-                <button className="w-full bg-brand-surface border border-brand-border text-brand-text font-black uppercase tracking-widest text-xs py-4 rounded-lg hover:bg-brand-bg active:scale-[0.98] transition-all flex items-center justify-center gap-2">
-                  <Download className="w-4 h-4" /> Technical Data PDF
+                <button 
+                  onClick={() => {
+                    addToCart({
+                      id: product.id,
+                      name: product.name,
+                      price: product.price,
+                      image: product.image,
+                      quantity: 1,
+                      selectedLength,
+                      selectedMounting
+                    });
+                    setIsCartOpen(true);
+                  }}
+                  className="w-full bg-brand-surface border border-brand-border text-brand-text font-black uppercase tracking-widest text-xs py-4 rounded-lg hover:bg-brand-bg active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                >
+                  Buy Now
                 </button>
               </div>
             </div>

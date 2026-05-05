@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Shield, Zap, Sun, Settings2, Network, ArrowRight, ChevronLeft, ChevronRight, Search, Check } from 'lucide-react';
+import { Shield, Zap, Sun, Settings2, Network, ArrowRight, ChevronLeft, ChevronRight, Search, Check, ShoppingCart } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
+import { useCart } from '../components/CartContext';
 
 export const PRODUCTS = [
+// ... (omitted for brevity, will target specific location)
   {
     id: 1,
     tag: 'CORD REELS',
@@ -77,6 +79,7 @@ export function Products() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
+  const { addToCart } = useCart();
 
   const filteredProducts = PRODUCTS.filter(product => {
     const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
@@ -260,9 +263,9 @@ export function Products() {
                        
                        <div className="flex items-center justify-between mt-auto">
                          <span className="text-2xl text-brand-blue font-bold">{product.price}</span>
-                         <button className="bg-brand-yellow text-black font-bold uppercase tracking-widest text-xs px-4 py-3 hover:brightness-110 active:scale-95 transition-all text-center flex items-center justify-center">
-                           ADD TO<br/>QUOTE
-                         </button>
+                         <button onClick={(e) => { e.preventDefault(); addToCart({ id: product.id, name: product.name, price: product.price, image: product.image, quantity: 1 }); }} className="bg-brand-yellow text-black font-black uppercase tracking-widest text-[9px] px-4 py-3 hover:brightness-110 active:scale-95 transition-all text-center flex items-center justify-center relative z-30 shadow-lg shadow-brand-yellow/10">
+                            ADD TO<br/>CART
+                          </button>
                        </div>
                      </div>
                    </motion.div>

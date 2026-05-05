@@ -2,10 +2,12 @@ import React from 'react';
 import { ShoppingCart, User, Menu, Sun, Moon } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from './ThemeProvider';
+import { useCart } from './CartContext';
 
 export function Header() {
   const location = useLocation();
   const { theme, setTheme } = useTheme();
+  const { setIsCartOpen, cartCount } = useCart();
   
   const navItems = [
     { name: 'Home', path: '/' },
@@ -51,8 +53,16 @@ export function Header() {
           >
             {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
-          <button className="hidden lg:flex items-center text-white/60 hover:text-brand-yellow hover:scale-110 active:scale-95 transition-all">
+          <button 
+            onClick={() => setIsCartOpen(true)}
+            className="relative flex items-center text-white/60 hover:text-brand-yellow hover:scale-110 active:scale-95 transition-all"
+          >
             <ShoppingCart className="w-5 h-5" />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-brand-yellow text-black text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center animate-pulse">
+                {cartCount}
+              </span>
+            )}
           </button>
           <button className="hidden lg:flex items-center text-white/60 hover:text-brand-yellow hover:scale-110 active:scale-95 transition-all">
             <User className="w-5 h-5" />

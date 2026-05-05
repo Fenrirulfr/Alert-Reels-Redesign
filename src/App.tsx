@@ -6,6 +6,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './components/ThemeProvider';
+import { CartProvider } from './components/CartContext';
+import { CartDrawer } from './components/CartDrawer';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -20,10 +22,12 @@ import { Contact } from './pages/Contact';
 export default function App() {
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <Router>
-        <div className="min-h-screen bg-brand-bg flex flex-col font-sans transition-colors duration-300 antialiased selection:bg-brand-yellow selection:text-black">
-          <Header />
-          <main className="flex-1">
+      <CartProvider>
+        <Router>
+          <div className="min-h-screen bg-brand-bg flex flex-col font-sans transition-colors duration-300 antialiased selection:bg-brand-yellow selection:text-black">
+            <Header />
+            <CartDrawer />
+            <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
@@ -38,6 +42,7 @@ export default function App() {
           <Footer />
         </div>
       </Router>
+      </CartProvider>
     </ThemeProvider>
   );
 }
