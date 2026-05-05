@@ -64,9 +64,12 @@ export function Header() {
               </span>
             )}
           </button>
-          <button className="hidden lg:flex items-center text-white/60 hover:text-brand-yellow hover:scale-110 active:scale-95 transition-all">
+          <Link 
+            to="/login"
+            className="hidden lg:flex items-center text-white/60 hover:text-brand-yellow hover:scale-110 active:scale-95 transition-all"
+          >
             <User className="w-5 h-5" />
-          </button>
+          </Link>
           <Link to="/contact" className="bg-brand-yellow text-black px-5 py-2.5 font-bold uppercase tracking-wider text-[11px] hover:brightness-110 shadow-brand-shadow active:scale-95 transition-all hidden sm:block cursor-pointer">
             Request Quote
           </Link>

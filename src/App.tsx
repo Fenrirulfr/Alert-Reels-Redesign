@@ -13,6 +13,8 @@ import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { Products } from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
+import { Login } from './pages/Login';
+import { SignUp } from './pages/SignUp';
 import { Distributors } from './pages/Distributors';
 import { Solutions } from './pages/Solutions';
 import { Brands } from './pages/Brands';
@@ -32,6 +34,8 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="/distributors" element={<Distributors />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/brands" element={<Brands />} />

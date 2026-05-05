@@ -1,0 +1,171 @@
+import React from 'react';
+import { motion } from 'motion/react';
+import { Mail, Lock, User, Building2, BadgeCheck, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+export function SignUp() {
+  return (
+    <div className="min-h-screen flex flex-col md:flex-row bg-[#131313] selection:bg-brand-yellow selection:text-black">
+      {/* Left Side: Visual Anchor */}
+      <section className="hidden md:flex md:w-1/2 relative bg-black overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            alt="Industrial Components" 
+            className="w-full h-full object-cover grayscale brightness-50 opacity-60 contrast-125" 
+            src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#131313]"></div>
+        </div>
+        
+        <div className="relative z-10 p-12 flex flex-col justify-between h-full w-full">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-3"
+          >
+            <div className="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center">
+              <Shield className="w-6 h-6 text-black" fill="currentColor" />
+            </div>
+            <span className="font-black text-2xl text-white tracking-tighter uppercase">Alert Reels</span>
+          </motion.div>
+
+          <div className="max-w-md">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-6xl font-black text-white mb-6 leading-[0.9] tracking-tighter"
+            >
+              BUILT FOR THE EXTREME.
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-white/60 text-lg leading-relaxed"
+            >
+              Access the next generation of industrial alert management. Designed for distributors and professionals who demand unyielding reliability.
+            </motion.p>
+          </div>
+
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="flex items-center gap-6 border-l-2 border-brand-yellow pl-6 py-2"
+          >
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-yellow">Industrial Precision</span>
+            <div className="w-1 h-1 rounded-full bg-white/20"></div>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">Verified Standard 2024</span>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Right Side: Registration Form */}
+      <section className="flex-1 flex items-center justify-center p-6 md:p-12 bg-[#131313]">
+        <div className="w-full max-w-md space-y-10">
+          <header className="space-y-2">
+            <h2 className="text-4xl font-black text-white tracking-tight">Create Account</h2>
+            <p className="text-white/40 text-sm">Enter your professional details to get started.</p>
+          </header>
+
+          <form className="space-y-6">
+            <div className="grid grid-cols-1 gap-5">
+              {/* Full Name */}
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase text-white/40 block font-black tracking-widest ml-1" htmlFor="full-name">Full Name</label>
+                <div className="relative group">
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-brand-orange transition-colors w-5 h-5" />
+                  <input 
+                    type="text" 
+                    id="full-name" 
+                    placeholder="John Doe"
+                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:ring-1 focus:ring-brand-orange focus:border-brand-orange transition-all outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Work Email */}
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase text-white/40 block font-black tracking-widest ml-1" htmlFor="email">Work Email</label>
+                <div className="relative group">
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-brand-orange transition-colors w-5 h-5" />
+                  <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="name@company.com"
+                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:ring-1 focus:ring-brand-orange focus:border-brand-orange transition-all outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Company Name */}
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase text-white/40 block font-black tracking-widest ml-1" htmlFor="company">Company Name</label>
+                <div className="relative group">
+                  <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-brand-orange transition-colors w-5 h-5" />
+                  <input 
+                    type="text" 
+                    id="company" 
+                    placeholder="Industrial Solutions Inc."
+                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:ring-1 focus:ring-brand-orange focus:border-brand-orange transition-all outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Password */}
+              <div className="space-y-1.5">
+                <label className="text-[10px] uppercase text-white/40 block font-black tracking-widest ml-1" htmlFor="password">Create Password</label>
+                <div className="relative group">
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-brand-orange transition-colors w-5 h-5" />
+                  <input 
+                    type="password" 
+                    id="password" 
+                    placeholder="••••••••"
+                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:ring-1 focus:ring-brand-orange focus:border-brand-orange transition-all outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-4 space-y-4">
+              <button 
+                type="submit"
+                className="w-full bg-brand-yellow text-black font-black uppercase tracking-widest text-sm py-5 rounded-lg hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_4px_20px_rgba(252,227,0,0.2)]"
+              >
+                Create Account
+              </button>
+
+              <div className="relative flex items-center py-4">
+                <div className="flex-grow border-t border-white/10"></div>
+                <span className="flex-shrink mx-4 text-white/20 font-black tracking-widest text-[10px]">OR</span>
+                <div className="flex-grow border-t border-white/10"></div>
+              </div>
+
+              <button 
+                type="button"
+                className="w-full border-2 border-brand-blue text-brand-blue font-black uppercase tracking-widest text-[10px] py-4 rounded-lg hover:bg-brand-blue hover:text-white transition-all flex items-center justify-center gap-2"
+              >
+                <BadgeCheck className="w-5 h-5" />
+                Register as Distributor
+              </button>
+            </div>
+          </form>
+
+          <footer className="text-center pt-8">
+            <p className="text-sm text-white/40">
+              Already have an account? 
+              <Link to="/login" className="text-brand-yellow hover:underline font-black uppercase tracking-widest ml-1.5 transition-all">Log In</Link>
+            </p>
+          </footer>
+        </div>
+      </section>
+
+      {/* Floating Footer Credit */}
+      <div className="fixed bottom-6 right-6 hidden md:block">
+        <p className="text-[10px] text-white/10 font-black uppercase tracking-[0.2em]">© 2024 Alert Reels Industrial. All rights reserved.</p>
+      </div>
+    </div>
+  );
+}
