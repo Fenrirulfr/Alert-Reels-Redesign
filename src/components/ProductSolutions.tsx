@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const SOLUTIONS = [
   {
@@ -29,21 +30,21 @@ const SOLUTIONS = [
     tag: 'Power Blocks',
     title: 'QuadForce X',
     description: '4-way GFCI power distribution hub with premium 12-gauge wiring.',
-    image: 'https://lh3.googleusercontent.com/d/1hcU2xy1iVm6H_2X33QODlfjv-Th16ksS'
+    image: 'https://lh3.googleusercontent.com/d/1PELIyXujbJOjiX-KSsXQxrnioGf4JzWU'
   },
   {
     id: 5,
     tag: 'Lighting',
     title: 'Lumina Pro 360',
     description: 'High-output 15,000 lumen LED work light with integrated 50ft cable.',
-    image: 'https://images.unsplash.com/photo-1549488344-c189b8823d70?auto=format&fit=crop&q=80&w=600'
+    image: 'https://lh3.googleusercontent.com/d/1oLclm1VLqXRnkDQFnvcCcCSdGQk7Sn2n'
   },
   {
     id: 6,
     tag: 'Hazard Series',
     title: 'Sentinel V3',
     description: 'Explosion-proof hazardous location cord reel with static grounding.',
-    image: 'https://images.unsplash.com/photo-1563294813-fdf8a0c6480c?auto=format&fit=crop&q=80&w=600'
+    image: 'https://lh3.googleusercontent.com/d/1SehTmojrGPFblOrC0UKkcNkmn10rF86F'
   }
 ];
 
@@ -63,7 +64,7 @@ export function ProductSolutions() {
   };
 
   return (
-    <section className="py-20 bg-[#0e0e0e]">
+    <section className="py-20 bg-brand-bg">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -73,13 +74,13 @@ export function ProductSolutions() {
       >
         <div>
           <span className="text-brand-yellow text-xs font-bold uppercase tracking-widest block mb-2">Active Monitoring</span>
-          <h2 className="text-4xl font-bold text-white tracking-tight">Product Solutions</h2>
+          <h2 className="text-4xl font-bold text-brand-text tracking-tight">Product Solutions</h2>
         </div>
         <div className="flex gap-2">
-          <button onClick={scrollLeft} className="p-2 border border-white/20 text-white hover:bg-white/10 hover:border-brand-yellow transition-all active:scale-95">
+          <button onClick={scrollLeft} className="p-2 border border-brand-border text-brand-text hover:bg-white/10 hover:border-brand-yellow transition-all active:scale-95">
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button onClick={scrollRight} className="p-2 border border-white/20 text-white hover:bg-white/10 hover:border-brand-yellow transition-all active:scale-95">
+          <button onClick={scrollRight} className="p-2 border border-brand-border text-brand-text hover:bg-white/10 hover:border-brand-yellow transition-all active:scale-95">
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
@@ -98,19 +99,21 @@ export function ProductSolutions() {
           <motion.div 
             whileHover={{ y: -4 }}
             key={solution.id} 
-            className="min-w-[400px] bg-[#1a1a1a] p-4 border border-white/10 group hover:border-brand-yellow/50 transition-colors shrink-0 cursor-pointer"
+            className="min-w-[400px] bg-brand-surface rounded-lg p-4 border border-brand-border group hover:border-brand-yellow/50 transition-colors shrink-0 relative"
           >
+            <Link to={`/product/${solution.title.toLowerCase().replace(/ /g, '-')}`} className="absolute inset-0 z-20"></Link>
             <div className="aspect-[16/9] w-full overflow-hidden mb-4 relative">
               <img 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 alt={solution.title} 
                 src={solution.image} 
+                referrerPolicy="no-referrer"
               />
             </div>
             <div className="px-2 pb-2">
               <span className="text-[11px] font-bold text-brand-yellow uppercase mb-2 block tracking-widest">{solution.tag}</span>
-              <h4 className="text-2xl font-bold mb-2 text-white tracking-tight">{solution.title}</h4>
-              <p className="text-white/60 text-base leading-relaxed">{solution.description}</p>
+              <h4 className="text-2xl font-bold mb-2 text-brand-text tracking-tight">{solution.title}</h4>
+              <p className="text-brand-text-muted text-base leading-relaxed">{solution.description}</p>
             </div>
           </motion.div>
         ))}

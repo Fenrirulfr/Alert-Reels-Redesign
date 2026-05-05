@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Shield, Zap, Sun, Settings2, Network, ArrowRight, ChevronLeft, ChevronRight, Search, Check } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { cn } from '../lib/utils';
 
-const PRODUCTS = [
+export const PRODUCTS = [
   {
     id: 1,
     tag: 'CORD REELS',
     icon: Shield,
     name: 'Titan 500-X',
-    description: 'Ultra-durable retractable cord reel with reinforced steel...',
+    description: 'Ultra-durable retractable cord reel with reinforced steel construction.',
     price: '$499.00',
     image: 'https://lh3.googleusercontent.com/d/1-xIL-VmJ0grJtwW4kbN7NI1bUAkcAlJR',
     category: 'Industrial Cord Reels',
@@ -20,9 +21,9 @@ const PRODUCTS = [
     tag: 'HAZARD SERIES',
     icon: Zap,
     name: 'Sentinel V3',
-    description: 'Explosion-proof hazardous location cord reel with static...',
+    description: 'Explosion-proof hazardous location cord reel with static grounding.',
     price: '$1,245.00',
-    image: 'https://images.unsplash.com/photo-1563294813-fdf8a0c6480c?auto=format&fit=crop&q=80&w=600',
+    image: 'https://lh3.googleusercontent.com/d/1SehTmojrGPFblOrC0UKkcNkmn10rF86F',
     category: 'High-Visibility Hazards',
     brand: 'Alert Reels Pro'
   },
@@ -31,9 +32,9 @@ const PRODUCTS = [
     tag: 'LIGHTING',
     icon: Sun,
     name: 'Lumina Pro 360',
-    description: 'High-output 15,000 lumen LED work light with integrated 50ft...',
+    description: 'High-output 15,000 lumen LED work light with integrated 50ft cable.',
     price: '$689.00',
-    image: 'https://images.unsplash.com/photo-1549488344-c189b8823d70?auto=format&fit=crop&q=80&w=600',
+    image: 'https://lh3.googleusercontent.com/d/1oLclm1VLqXRnkDQFnvcCcCSdGQk7Sn2n',
     category: 'Emergency Lighting',
     brand: 'Alert Reels Pro'
   },
@@ -42,9 +43,9 @@ const PRODUCTS = [
     tag: 'ENTERPRISE',
     icon: Settings2,
     name: 'Slimline-R',
-    description: 'Space-saving low profile reel for cleanroom and laboratory...',
+    description: 'Space-saving low profile reel for cleanroom and laboratory environments.',
     price: '$340.00',
-    image: 'https://images.unsplash.com/photo-1623912187654-e653da9aa53a?auto=format&fit=crop&q=80&w=600',
+    image: 'https://lh3.googleusercontent.com/d/1q0MNnqUQByV5jLYDaYmF4xzeyJbkn_LL',
     category: 'Industrial Cord Reels',
     brand: 'Alert Reels Pro'
   },
@@ -53,9 +54,9 @@ const PRODUCTS = [
     tag: 'POWER BLOCKS',
     icon: Zap,
     name: 'QuadForce X',
-    description: '4-way GFCI power distribution hub with 12-gauge premium...',
+    description: '4-way GFCI power distribution hub with 12-gauge premium wiring.',
     price: '$215.00',
-    image: 'https://lh3.googleusercontent.com/d/1hcU2xy1iVm6H_2X33QODlfjv-Th16ksS',
+    image: 'https://lh3.googleusercontent.com/d/1PELIyXujbJOjiX-KSsXQxrnioGf4JzWU',
     category: 'Cable Management',
     brand: 'Alert Reels Pro'
   },
@@ -64,9 +65,9 @@ const PRODUCTS = [
     tag: 'DIGITAL FIELD',
     icon: Network,
     name: 'DataLink Pro',
-    description: 'Ruggedized Cat6 Ethernet deployment reel with military-...',
+    description: 'Ruggedized Cat6 Ethernet deployment reel with military-grade shielding.',
     price: '$795.00',
-    image: 'https://images.unsplash.com/photo-1616422285149-ad7bd3d76b7f?auto=format&fit=crop&q=80&w=600',
+    image: 'https://lh3.googleusercontent.com/d/11WnnjpBa7cc2bwjn0rwKPnS9FfVV-Biy',
     category: 'Cable Management',
     brand: 'Titan Series'
   }
@@ -116,13 +117,13 @@ export function Products() {
     <div className="pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-8 font-sans">
       
       {/* Top Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 pb-4 border-b border-white/10 gap-6">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 pb-4 border-b border-brand-border gap-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <h1 className="text-4xl text-white font-medium tracking-wide mb-2 uppercase">Industrial Products</h1>
-          <p className="text-white/70 text-lg">Precision-engineered hardware for high-stakes environments.</p>
+          <h1 className="text-4xl text-brand-text font-medium tracking-wide mb-2 uppercase">Industrial Products</h1>
+          <p className="text-brand-text-muted text-lg">Precision-engineered hardware for high-stakes environments.</p>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
-          <button className="flex items-center gap-2 bg-transparent border border-white/20 text-white px-4 py-2 text-sm hover:border-white/40 transition-colors active:scale-95">
+          <button className="flex items-center gap-2 bg-transparent border border-brand-border text-brand-text px-4 py-2 text-sm hover:border-brand-border transition-colors active:scale-95">
             SORT BY: POPULARITY
             <ChevronRight className="w-4 h-4 ml-2" style={{ transform: 'rotate(90deg)' }} />
           </button>
@@ -134,26 +135,26 @@ export function Products() {
         <div className="w-full lg:w-64 shrink-0 flex flex-col gap-8">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-white text-base font-medium tracking-widest uppercase">Filters</h3>
+              <h3 className="text-brand-text text-base font-medium tracking-widest uppercase">Filters</h3>
               <button onClick={clearAll} className="text-brand-yellow font-bold text-xs hover:underline hover:brightness-110 active:scale-95 transition-all">clear all</button>
             </div>
             
             {/* Category */}
             <div className="mb-8">
-              <h4 className="text-white/60 text-sm mb-4">CATEGORY</h4>
+              <h4 className="text-brand-text-muted text-sm mb-4">CATEGORY</h4>
               <div className="flex flex-col gap-3">
                 {CATEGORIES.map(category => {
                   const isSelected = selectedCategories.includes(category);
                   return (
                     <label key={category} className="flex items-center gap-3 cursor-pointer group" onClick={(e) => { e.preventDefault(); toggleCategory(category); }}>
-                      <div className={cn("w-5 h-5 rounded-[4px] border flex items-center justify-center transition-colors", isSelected ? "bg-brand-yellow border-brand-yellow" : "border-white/20 group-hover:border-white/50")}>
+                      <div className={cn("w-5 h-5 rounded-[4px] border flex items-center justify-center transition-colors", isSelected ? "bg-brand-yellow border-brand-yellow" : "border-brand-border group-hover:border-brand-border0")}>
                         {isSelected && (
                           <motion.svg initial={{ scale: 0 }} animate={{ scale: 1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10 3L4.5 8.5L2 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           </motion.svg>
                         )}
                       </div>
-                      <span className={cn("text-sm transition-colors", isSelected ? "text-brand-yellow font-medium group-hover:text-brand-yellow/80" : "text-white/80 group-hover:text-white")}>{category}</span>
+                      <span className={cn("text-sm transition-colors", isSelected ? "text-brand-yellow font-medium group-hover:text-brand-yellow/80" : "text-brand-text-muted group-hover:text-brand-text")}>{category}</span>
                     </label>
                   );
                 })}
@@ -162,35 +163,35 @@ export function Products() {
 
             {/* Price Range */}
             <div className="mb-8">
-              <h4 className="text-white/60 text-sm mb-4">PRICE RANGE</h4>
+              <h4 className="text-brand-text-muted text-sm mb-4">PRICE RANGE</h4>
               <div className="px-2">
                 <div className="h-[2px] bg-white/20 w-full relative mb-6">
                   <motion.div layout className="absolute left-0 top-0 bottom-0 w-1/3 bg-brand-yellow"></motion.div>
-                  <motion.div layout className="absolute left-1/3 top-1/2 -translate-y-1/2 w-3 h-3 bg-brand-yellow rounded-full shadow-[0_0_10px_rgba(252,227,0,0.5)] cursor-grab active:cursor-grabbing"></motion.div>
+                  <motion.div layout className="absolute left-1/3 top-1/2 -translate-y-1/2 w-3 h-3 bg-brand-yellow rounded-full shadow-brand-shadow cursor-grab active:cursor-grabbing"></motion.div>
                 </div>
               </div>
               <div className="flex justify-between items-center gap-4">
-                <div className="bg-white/5 px-3 py-2 text-white text-sm border border-white/10 w-full text-center hover:bg-white/10 transition-colors cursor-pointer">$100</div>
-                <div className="bg-white/5 px-3 py-2 text-white text-sm border border-white/10 w-full text-center hover:bg-white/10 transition-colors cursor-pointer">$5,000+</div>
+                <div className="bg-white/5 px-3 py-2 text-brand-text text-sm border border-brand-border w-full text-center hover:bg-white/10 transition-colors cursor-pointer">$100</div>
+                <div className="bg-white/5 px-3 py-2 text-brand-text text-sm border border-brand-border w-full text-center hover:bg-white/10 transition-colors cursor-pointer">$5,000+</div>
               </div>
             </div>
 
             {/* Brand */}
             <div>
-              <h4 className="text-white/60 text-sm mb-4">BRAND</h4>
+              <h4 className="text-brand-text-muted text-sm mb-4">BRAND</h4>
               <div className="flex flex-col gap-3">
                 {BRANDS.map(brand => {
                   const isSelected = selectedBrands.includes(brand);
                   return (
                     <label key={brand} className="flex items-center gap-3 cursor-pointer group" onClick={(e) => { e.preventDefault(); toggleBrand(brand); }}>
-                      <div className={cn("w-5 h-5 rounded-[4px] border flex items-center justify-center transition-colors", isSelected ? "bg-brand-yellow border-brand-yellow" : "border-white/20 group-hover:border-white/50")}>
+                      <div className={cn("w-5 h-5 rounded-[4px] border flex items-center justify-center transition-colors", isSelected ? "bg-brand-yellow border-brand-yellow" : "border-brand-border group-hover:border-brand-border0")}>
                         {isSelected && (
                           <motion.svg initial={{ scale: 0 }} animate={{ scale: 1 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10 3L4.5 8.5L2 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           </motion.svg>
                         )}
                       </div>
-                      <span className={cn("text-sm transition-colors", isSelected ? "text-brand-yellow font-medium group-hover:text-brand-yellow/80" : "text-white/80 group-hover:text-white")}>{brand}</span>
+                      <span className={cn("text-sm transition-colors", isSelected ? "text-brand-yellow font-medium group-hover:text-brand-yellow/80" : "text-brand-text-muted group-hover:text-brand-text")}>{brand}</span>
                     </label>
                   );
                 })}
@@ -198,12 +199,12 @@ export function Products() {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="mt-4 p-6 bg-white/5 border border-white/10 rounded-sm relative overflow-hidden group hover:border-white/20 transition-all cursor-pointer">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="mt-4 p-6 bg-white/5 border border-brand-border rounded-lg relative overflow-hidden group hover:border-brand-border transition-all cursor-pointer">
             <div className="absolute right-0 top-0 opacity-[0.03] transform translate-x-4 -translate-y-4 group-hover:opacity-[0.05] transition-all group-hover:rotate-12 duration-500">
                <Settings2 style={{ width: '120px', height: '120px' }} />
             </div>
-            <h4 className="text-xl text-white font-medium tracking-tight mb-3">Support</h4>
-            <p className="text-white/60 text-sm mb-6 leading-relaxed">
+            <h4 className="text-xl text-brand-text font-medium tracking-tight mb-3">Support</h4>
+            <p className="text-brand-text-muted text-sm mb-6 leading-relaxed">
               Need help configuring a custom industrial reel solution?
             </p>
             <button className="text-brand-yellow font-bold text-xs uppercase tracking-widest flex items-center group-hover:brightness-110 active:scale-95 transition-all">
@@ -235,24 +236,30 @@ export function Products() {
                        visible: { opacity: 1, y: 0 }
                      }}
                      whileHover={{ y: -4 }}
-                     className="bg-[#111111] group overflow-hidden border border-white/5 hover:border-transparent transition-all relative flex flex-col cursor-pointer"
+                     className="bg-brand-bg group overflow-hidden border border-brand-border hover:border-transparent transition-all relative flex flex-col"
                    >
+                     <Link to={`/product/${product.name.toLowerCase().replace(/ /g, '-')}`} className="absolute inset-0 z-20"></Link>
                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-yellow opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
                      
-                     <div className="aspect-[4/3] bg-[#1a1a1a] relative overflow-hidden">
-                       <img src={product.image} alt={product.name} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                     <div className="aspect-[4/3] bg-brand-surface rounded-lg relative overflow-hidden">
+                       <img 
+                          src={product.image} 
+                          alt={product.name} 
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" 
+                        />
                      </div>
                      
-                     <div className="p-6 flex flex-col flex-1 relative bg-gradient-to-t from-[#111111] to-[#111111]/90">
+                     <div className="p-6 flex flex-col flex-1 relative bg-brand-surface rounded-lg">
                        <div className="flex justify-between items-center mb-4">
                          <span className="text-brand-yellow text-[10px] font-bold uppercase tracking-widest">{product.tag}</span>
-                         <Icon className="w-4 h-4 text-white/40 group-hover:text-brand-yellow transition-colors" />
+                         <Icon className="w-4 h-4 text-brand-blue group-hover:text-brand-yellow transition-colors" />
                        </div>
-                       <h4 className="text-xl text-white font-bold tracking-tight mb-3 group-hover:text-brand-yellow transition-colors">{product.name}</h4>
-                       <p className="text-white/60 text-sm mb-6 leading-relaxed flex-1">{product.description}</p>
+                       <h4 className="text-xl text-brand-text font-bold tracking-tight mb-3 group-hover:text-brand-yellow transition-colors">{product.name}</h4>
+                       <p className="text-brand-text-muted text-sm mb-6 leading-relaxed flex-1">{product.description}</p>
                        
                        <div className="flex items-center justify-between mt-auto">
-                         <span className="text-2xl text-white font-medium">{product.price}</span>
+                         <span className="text-2xl text-brand-blue font-bold">{product.price}</span>
                          <button className="bg-brand-yellow text-black font-bold uppercase tracking-widest text-xs px-4 py-3 hover:brightness-110 active:scale-95 transition-all text-center flex items-center justify-center">
                            ADD TO<br/>QUOTE
                          </button>
@@ -262,7 +269,7 @@ export function Products() {
                  )
               })
             ) : (
-              <div className="col-span-full py-20 text-center text-white/50 space-y-4">
+              <div className="col-span-full py-20 text-center text-brand-text-muted space-y-4">
                 <p>No products found matching your filters.</p>
                 <button 
                   onClick={clearAll} 

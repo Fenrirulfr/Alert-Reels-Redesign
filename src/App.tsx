@@ -10,6 +10,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { Products } from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
 import { Distributors } from './pages/Distributors';
 import { Solutions } from './pages/Solutions';
 import { Brands } from './pages/Brands';
@@ -18,14 +19,15 @@ import { Contact } from './pages/Contact';
 
 export default function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <Router>
-        <div className="min-h-screen bg-[#0B0C10] flex flex-col font-sans transition-colors duration-300 antialiased selection:bg-brand-yellow selection:text-black">
+        <div className="min-h-screen bg-brand-bg flex flex-col font-sans transition-colors duration-300 antialiased selection:bg-brand-yellow selection:text-black">
           <Header />
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/distributors" element={<Distributors />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/brands" element={<Brands />} />

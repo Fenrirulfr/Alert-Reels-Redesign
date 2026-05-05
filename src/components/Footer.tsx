@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#131313] border-t-4 border-brand-yellow relative">
+    <footer className="w-full bg-[#131313] rounded-lg border-t-4 border-brand-yellow relative">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-4 sm:px-8 py-20 max-w-7xl mx-auto font-sans">
         
         {/* Column 1: Logo & About */}
@@ -51,13 +51,13 @@ export function Footer() {
             <input 
               type="email" 
               placeholder="Email Address" 
-              className="w-full bg-[#1a1a1a] border border-white/20 px-4 py-3 text-white text-sm focus:border-brand-yellow focus:outline-none transition-all placeholder:text-white/30"
+              className="w-full bg-[#131313] rounded-lg border border-white/10 px-4 py-3 text-white text-sm focus:border-brand-yellow focus:outline-none transition-all placeholder:text-white/30"
             />
             <button className="bg-brand-yellow text-black px-6 hover:brightness-110 active:scale-95 transition-all flex items-center justify-center shrink-0">
               <Send className="w-5 h-5" />
             </button>
           </div>
-          <p className="text-xs text-white/40 mt-4">© 2024 Alert Reels Industrial. All rights reserved.</p>
+          <p className="text-xs text-white/60 mt-4">© 2024 Alert Reels Industrial. All rights reserved.</p>
         </div>
 
       </div>
