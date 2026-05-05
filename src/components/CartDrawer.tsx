@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Minus, Plus, Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useCart } from './CartContext';
 
 export function CartDrawer() {
@@ -119,16 +120,13 @@ export function CartDrawer() {
                 </div>
                 
                 <div className="grid grid-cols-1 gap-2 pt-2">
-                  <button 
-                    onClick={() => {
-                      alert('Checkout feature coming soon! This would typically redirect to Stripe or a secure payment gateway.');
-                      clearCart();
-                      setIsCartOpen(false);
-                    }}
+                  <Link 
+                    to="/checkout"
+                    onClick={() => setIsCartOpen(false)}
                     className="w-full bg-brand-yellow text-black font-black uppercase tracking-widest text-xs py-4 rounded-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xl shadow-brand-yellow/10"
                   >
                     Complete Checkout <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                   <button 
                     onClick={() => setIsCartOpen(false)}
                     className="w-full text-white/40 font-bold uppercase tracking-widest text-[10px] py-2 hover:text-white transition-colors"

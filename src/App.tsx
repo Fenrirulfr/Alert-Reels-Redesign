@@ -15,6 +15,7 @@ import { Products } from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import { Login } from './pages/Login';
 import { SignUp } from './pages/SignUp';
+import { Checkout } from './pages/Checkout';
 import { Distributors } from './pages/Distributors';
 import { Solutions } from './pages/Solutions';
 import { Brands } from './pages/Brands';
@@ -29,13 +30,14 @@ export default function App() {
           <div className="min-h-screen bg-brand-bg flex flex-col font-sans transition-colors duration-300 antialiased selection:bg-brand-yellow selection:text-black">
             <Header />
             <CartDrawer />
-            <main className="flex-1">
+            <main className="flex-1 pt-20">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/checkout" element={<Checkout />} />
               <Route path="/distributors" element={<Distributors />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/brands" element={<Brands />} />

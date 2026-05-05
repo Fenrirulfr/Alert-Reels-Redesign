@@ -10,25 +10,16 @@ export function Login() {
       <section className="hidden md:flex md:w-1/2 lg:w-3/5 relative overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <img 
-            alt="Industrial Facility" 
-            className="w-full h-full object-cover grayscale brightness-50 opacity-60" 
-            src="https://images.unsplash.com/photo-1581091226815-45c4832c5855?auto=format&fit=crop&q=80"
+            alt="Alert Reels Background" 
+            className="w-full h-full object-cover opacity-40 mix-blend-overlay" 
+            src="https://lh3.googleusercontent.com/d/1NoJ8-y2OZvJlF-za1kQ127YG71gnXX4g"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#131313] via-transparent to-transparent opacity-80"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#131313] via-transparent to-transparent opacity-60"></div>
         </div>
         
         <div className="relative z-10 p-12 flex flex-col justify-between h-full w-full">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
-          >
-            <div className="w-10 h-10 rounded-full bg-brand-yellow flex items-center justify-center">
-              <Shield className="w-6 h-6 text-black" fill="currentColor" />
-            </div>
-            <span className="font-black text-2xl text-white tracking-tighter uppercase">Alert Reels</span>
-          </motion.div>
+          <div></div>
 
           <div className="max-w-md">
             <motion.h1 
