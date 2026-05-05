@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 
 export function Resources() {
   return (
-    <div className="pt-20 font-sans bg-brand-surface rounded-lg text-brand-text min-h-screen">
+    <div className="font-sans bg-brand-surface rounded-lg text-brand-text min-h-screen">
       {/* Blog Featured Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8 py-12">
         <motion.div 
@@ -43,10 +43,12 @@ export function Resources() {
           </div>
           <div className="w-full md:w-96">
             <div className="relative group">
+              <label htmlFor="resource-search" className="sr-only">Search technical manuals</label>
               <input 
-                className="w-full bg-brand-surface rounded-lg border border-brand-border px-4 py-4 text-xs font-bold uppercase focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow text-brand-text placeholder:text-brand-text-muted transition-all outline-none rounded-lg" 
+                id="resource-search"
+                className="w-full bg-brand-surface border border-brand-border px-4 py-4 text-xs font-bold uppercase focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow text-brand-text placeholder:text-brand-text-muted transition-all outline-none rounded-lg" 
                 placeholder="SEARCH MANUALS..." 
-                type="text"
+                type="search"
               />
               <Search className="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 text-brand-text-muted group-focus-within:text-brand-yellow transition-colors" />
             </div>
@@ -225,24 +227,25 @@ export function Resources() {
           </motion.div>
 
           <div className="relative max-w-5xl mx-auto">
-            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-white/5"></div>
-            <div className="absolute left-1/2 -translate-x-1/2 w-1 h-1/3 bg-brand-yellow shadow-brand-shadow"></div>
+            {/* Vertical Line - hidden on mobile sm */}
+            <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-0.5 h-full bg-white/5"></div>
+            <div className="hidden md:block absolute left-1/2 -translate-x-1/2 w-0.5 h-1/3 bg-brand-yellow shadow-brand-shadow"></div>
             
-            <div className="space-y-24 relative">
+            <div className="space-y-16 md:space-y-24 relative">
               {/* Timeline 1 */}
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="flex items-center w-full group"
+                className="flex flex-col md:flex-row items-center w-full group"
               >
-                <div className="w-1/2 pr-12 text-right">
-                  <h4 className="text-2xl font-bold text-brand-text mb-2 tracking-tight group-hover:text-brand-yellow transition-colors">The Foundation</h4>
+                <div className="w-full md:w-1/2 md:pr-12 text-center md:text-right mb-6 md:mb-0">
+                  <h4 className="text-xl md:text-2xl font-bold text-brand-text mb-2 tracking-tight group-hover:text-brand-yellow transition-colors uppercase">The Foundation</h4>
                   <p className="text-brand-text-muted text-sm leading-relaxed">Founded in Detroit as Alert Safety Systems, pioneering the first high-visibility retractable reel for automotive assembly lines.</p>
                 </div>
-                <div className="relative z-10 w-4 h-4 rounded-full bg-brand-yellow border-4 border-[#0e0e0e] outline outline-4 outline-brand-yellow/20 -mx-2"></div>
-                <div className="w-1/2 pl-12 flex items-center gap-4">
-                  <span className="text-brand-yellow/20 font-black text-6xl tracking-tighter italic">1984</span>
+                <div className="hidden md:block relative z-10 w-4 h-4 rounded-full bg-brand-yellow border-4 border-[#0e0e0e] outline outline-4 outline-brand-yellow/20 -mx-2"></div>
+                <div className="w-full md:w-1/2 md:pl-12 flex items-center justify-center md:justify-start gap-4">
+                  <span className="text-brand-yellow/10 font-black text-5xl md:text-6xl tracking-tighter italic">1984</span>
                 </div>
               </motion.div>
 
@@ -251,15 +254,15 @@ export function Resources() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="flex items-center w-full flex-row-reverse group"
+                className="flex flex-col md:flex-row-reverse items-center w-full group"
               >
-                <div className="w-1/2 pl-12 text-left">
-                  <h4 className="text-2xl font-bold text-brand-text mb-2 tracking-tight group-hover:text-brand-yellow transition-colors">Industrial Pivot</h4>
+                <div className="w-full md:w-1/2 md:pl-12 text-center md:text-left mb-6 md:mb-0">
+                  <h4 className="text-xl md:text-2xl font-bold text-brand-text mb-2 tracking-tight group-hover:text-brand-yellow transition-colors uppercase">Industrial Pivot</h4>
                   <p className="text-brand-text-muted text-sm leading-relaxed">Launched the heavy-duty Reels Division, expanding into aerospace and marine environments with patented spring technologies.</p>
                 </div>
-                <div className="relative z-10 w-4 h-4 rounded-full bg-brand-yellow border-4 border-[#0e0e0e] outline outline-4 outline-brand-yellow/20 -mx-2"></div>
-                <div className="w-1/2 pr-12 text-right flex items-center justify-end gap-4">
-                  <span className="text-brand-yellow/20 font-black text-6xl tracking-tighter italic">2002</span>
+                <div className="hidden md:block relative z-10 w-4 h-4 rounded-full bg-brand-yellow border-4 border-[#0e0e0e] outline outline-4 outline-brand-yellow/20 -mx-2"></div>
+                <div className="w-full md:w-1/2 md:pr-12 text-center md:text-right flex items-center justify-center md:justify-end gap-4">
+                  <span className="text-brand-yellow/10 font-black text-5xl md:text-6xl tracking-tighter italic">2002</span>
                 </div>
               </motion.div>
 
@@ -268,15 +271,15 @@ export function Resources() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="flex items-center w-full group"
+                className="flex flex-col md:flex-row items-center w-full group"
               >
-                <div className="w-1/2 pr-12 text-right">
-                  <h4 className="text-2xl font-bold text-brand-text mb-2 tracking-tight group-hover:text-brand-yellow transition-colors">Smart Alert™ Era</h4>
+                <div className="w-full md:w-1/2 md:pr-12 text-center md:text-right mb-6 md:mb-0">
+                  <h4 className="text-xl md:text-2xl font-bold text-brand-text mb-2 tracking-tight group-hover:text-brand-yellow transition-colors uppercase">Smart Alert™ Era</h4>
                   <p className="text-brand-text-muted text-sm leading-relaxed">Integration of IoT and visual alert systems, setting new global standards for "Aware" cable management solutions.</p>
                 </div>
-                <div className="relative z-10 w-4 h-4 rounded-full bg-brand-yellow border-4 border-[#0e0e0e] outline outline-4 outline-brand-yellow/20 shadow-[0_0_20px_#fce300] -mx-2"></div>
-                <div className="w-1/2 pl-12 flex items-center gap-4">
-                  <span className="text-brand-yellow font-black text-5xl tracking-tighter italic">TODAY</span>
+                <div className="hidden md:block relative z-10 w-4 h-4 rounded-full bg-brand-yellow border-4 border-[#0e0e0e] outline outline-4 outline-brand-yellow/20 shadow-[0_0_20px_#fce300] -mx-2"></div>
+                <div className="w-full md:w-1/2 md:pl-12 flex items-center justify-center md:justify-start gap-4">
+                  <span className="text-brand-yellow font-black text-4xl md:text-5xl tracking-tighter italic">TODAY</span>
                 </div>
               </motion.div>
             </div>

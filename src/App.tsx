@@ -31,9 +31,15 @@ export default function App() {
       <CartProvider>
         <Router>
           <div className="min-h-screen bg-brand-bg flex flex-col font-sans transition-colors duration-300 antialiased selection:bg-brand-yellow selection:text-black">
+            <a 
+              href="#main-content" 
+              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-6 focus:py-3 focus:bg-brand-yellow focus:text-black focus:font-black focus:uppercase focus:text-xs focus:rounded-lg focus:shadow-2xl focus:outline-none"
+            >
+              Skip to content
+            </a>
             <Header />
             <CartDrawer />
-            <main className="flex-1">
+            <main id="main-content" className="flex-1 outline-none" tabIndex={-1}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />

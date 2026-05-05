@@ -13,6 +13,7 @@ interface AuthContextType {
   userProfile: any | null;
   signOut: () => Promise<void>;
   loginAsPlaceholder: () => void;
+  updateUserProfile: (data: any) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -21,6 +22,7 @@ const AuthContext = createContext<AuthContextType>({
   userProfile: null,
   signOut: async () => {},
   loginAsPlaceholder: () => {},
+  updateUserProfile: async () => {},
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -46,12 +48,43 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUserProfile(mockProfile);
     setLoading(false);
     localStorage.setItem('auth_placeholder', 'true');
+    localStorage.setItem('placeholder_profile', JSON.stringify(mockProfile));
+  };
+
+  const updateUserProfile = async (newData: any) => {
+    if (!user) return;
+
+    if (localStorage.getItem('auth_placeholder') === 'true') {
+      const updated = { ...userProfile, ...newData };
+      setUserProfile(updated);
+      localStorage.setItem('placeholder_profile', JSON.stringify(updated));
+      return;
+    }
+
+    try {
+      await setDoc(doc(db, 'users', user.uid), newData, { merge: true });
+      setUserProfile({ ...userProfile, ...newData });
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      throw error;
+    }
   };
 
   useEffect(() => {
     const isPlaceholder = localStorage.getItem('auth_placeholder');
     if (isPlaceholder === 'true') {
-      loginAsPlaceholder();
+      const savedProfile = localStorage.getItem('placeholder_profile');
+      if (savedProfile) {
+        setUserProfile(JSON.parse(savedProfile));
+        setUser({
+          uid: 'placeholder-user-id',
+          email: 'm.vance@globallogistics.com',
+          displayName: 'Marcus Vance',
+        });
+        setLoading(false);
+      } else {
+        loginAsPlaceholder();
+      }
       return;
     }
 
@@ -101,7 +134,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, userProfile, signOut, loginAsPlaceholder }}>
+    <AuthContext.Provider value={{ user, loading, userProfile, signOut, loginAsPlaceholder, updateUserProfile }}>
       {children}
     </AuthContext.Provider>
   );

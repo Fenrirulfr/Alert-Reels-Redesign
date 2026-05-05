@@ -12,7 +12,7 @@ export function Brands() {
   ];
 
   return (
-    <div className="pt-20 font-sans bg-brand-surface rounded-lg text-brand-text">
+    <div className="font-sans bg-brand-surface rounded-lg text-brand-text">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden border-b border-brand-border">
         <motion.div 

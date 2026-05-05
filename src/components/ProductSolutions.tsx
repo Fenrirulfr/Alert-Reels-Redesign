@@ -53,13 +53,15 @@ export function ProductSolutions() {
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -424, behavior: 'smooth' }); // 400px width + 24px gap
+      const cardWidth = scrollContainerRef.current.querySelector('div')?.clientWidth || 400;
+      scrollContainerRef.current.scrollBy({ left: -(cardWidth + 24), behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 424, behavior: 'smooth' });
+      const cardWidth = scrollContainerRef.current.querySelector('div')?.clientWidth || 400;
+      scrollContainerRef.current.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
     }
   };
 
@@ -74,13 +76,21 @@ export function ProductSolutions() {
       >
         <div>
           <span className="text-brand-yellow text-xs font-bold uppercase tracking-widest block mb-2">Active Monitoring</span>
-          <h2 className="text-4xl font-bold text-brand-text tracking-tight">Product Solutions</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-text tracking-tight">Product Solutions</h2>
         </div>
         <div className="flex gap-2">
-          <button onClick={scrollLeft} className="p-2 border border-brand-border text-brand-text hover:bg-white/10 hover:border-brand-yellow transition-all active:scale-95">
+          <button 
+            onClick={scrollLeft} 
+            className="p-2 border border-brand-border text-brand-text hover:bg-white/10 hover:border-brand-yellow transition-all active:scale-95 rounded-lg"
+            aria-label="Scroll products left"
+          >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <button onClick={scrollRight} className="p-2 border border-brand-border text-brand-text hover:bg-white/10 hover:border-brand-yellow transition-all active:scale-95">
+          <button 
+            onClick={scrollRight} 
+            className="p-2 border border-brand-border text-brand-text hover:bg-white/10 hover:border-brand-yellow transition-all active:scale-95 rounded-lg"
+            aria-label="Scroll products right"
+          >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
@@ -93,16 +103,20 @@ export function ProductSolutions() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5, delay: 0.2 }}
         ref={scrollContainerRef}
-        className="flex overflow-x-auto gap-6 px-4 sm:px-8 pb-10 max-w-7xl mx-auto [&::-webkit-scrollbar]:hidden scroll-smooth"
+        className="flex overflow-x-auto gap-6 px-4 sm:px-8 pb-10 max-w-7xl mx-auto [&::-webkit-scrollbar]:hidden scroll-smooth scrollbar-hide"
       >
         {SOLUTIONS.map(solution => (
           <motion.div 
             whileHover={{ y: -4 }}
             key={solution.id} 
-            className="min-w-[400px] bg-brand-surface rounded-lg p-4 border border-brand-border group hover:border-brand-yellow/50 transition-colors shrink-0 relative"
+            className="w-[300px] sm:w-[400px] min-w-[300px] sm:min-w-[400px] bg-brand-surface rounded-lg p-4 border border-brand-border group hover:border-brand-yellow/50 transition-colors shrink-0 relative"
           >
-            <Link to={`/product/${solution.title.toLowerCase().replace(/ /g, '-')}`} className="absolute inset-0 z-20"></Link>
-            <div className="aspect-[16/9] w-full overflow-hidden mb-4 relative">
+            <Link 
+              to={`/product/${solution.title.toLowerCase().replace(/ /g, '-')}`} 
+              className="absolute inset-0 z-20"
+              aria-label={`View details for ${solution.title}`}
+            ></Link>
+            <div className="aspect-[16/9] w-full overflow-hidden mb-4 relative rounded-md">
               <img 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 alt={solution.title} 
@@ -111,9 +125,9 @@ export function ProductSolutions() {
               />
             </div>
             <div className="px-2 pb-2">
-              <span className="text-[11px] font-bold text-brand-yellow uppercase mb-2 block tracking-widest">{solution.tag}</span>
-              <h4 className="text-2xl font-bold mb-2 text-brand-text tracking-tight">{solution.title}</h4>
-              <p className="text-brand-text-muted text-base leading-relaxed">{solution.description}</p>
+              <span className="text-[10px] font-bold text-brand-yellow uppercase mb-2 block tracking-widest">{solution.tag}</span>
+              <h4 className="text-xl sm:text-2xl font-bold mb-2 text-brand-text tracking-tight">{solution.title}</h4>
+              <p className="text-brand-text-muted text-sm sm:text-base leading-relaxed">{solution.description}</p>
             </div>
           </motion.div>
         ))}
@@ -121,3 +135,4 @@ export function ProductSolutions() {
     </section>
   );
 }
+

@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 
 export function Solutions() {
   return (
-    <div className="pt-20 font-sans bg-brand-surface rounded-lg text-brand-text">
+    <div className="font-sans bg-brand-surface rounded-lg text-brand-text">
       {/* Hero Section */}
       <section className="relative min-h-[716px] flex items-center overflow-hidden py-12">
         <motion.div 

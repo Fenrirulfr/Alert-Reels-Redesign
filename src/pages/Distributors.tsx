@@ -5,7 +5,7 @@ import { cn } from '../lib/utils';
 
 export function Distributors() {
   return (
-    <div className="pt-20 font-sans">
+    <div className="font-sans">
       {/* Hero Section */}
       <section className="relative h-[480px] lg:h-[560px] flex items-center overflow-hidden border-b border-brand-border">
         <motion.div 
@@ -56,52 +56,67 @@ export function Distributors() {
       <section className="max-w-7xl mx-auto px-4 sm:px-8 -mt-24 relative z-20 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Map Container */}
-          <div className="lg:col-span-8 h-[600px] lg:h-[700px] bg-brand-surface rounded-lg backdrop-blur-xl border border-brand-border rounded-xl overflow-hidden relative group">
+          <div className="lg:col-span-8 h-[500px] sm:h-[600px] lg:h-[700px] bg-brand-surface rounded-xl backdrop-blur-xl border border-brand-border overflow-hidden relative group">
             <div className="absolute inset-0 bg-brand-surface rounded-lg">
               <img 
                 className="w-full h-full object-cover opacity-40 contrast-125" 
-                alt="Dark global map with circuitry lines" 
+                alt="Global distribution network map" 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_xws7yvMSbXdn7vRs7LxzRAxFippw2bHnxI13CDeNDTEN0ScUYTt7eqdS8oV3hI_jCBLB_IlyGiDfP2lrulMN3-Qcw9EcSZiu37FPXjeben24lYr7gK4K_XtOpyEao64yte9fdhGgqbPkqliwRCSpCX_-DI_DhoQd_FQBcxqFmO_1bvIsL_kr1f-ISC_yUst0p9czw1b3ewtvC2tm7T38NHYDi_HonQ5qCn7LSL8CCnfLUa6o3gJb9Y0x_PCL4Sb5VCZDiP9TkjI"
               />
-              {/* Interactive Electric Blue Pins */}
-              <div className="absolute top-[35%] left-[22%] cursor-pointer group/pin">
+              {/* Interactive Pins */}
+              <button 
+                className="absolute top-[35%] left-[22%] cursor-pointer group/pin"
+                aria-label="View Chicago Distribution Center"
+              >
                 <div className="h-6 w-6 bg-brand-blue/30 rounded-full animate-ping absolute -inset-1 opacity-75"></div>
                 <div className="h-4 w-4 bg-brand-blue rounded-full relative shadow-brand-shadow border-2 border-brand-border transition-transform duration-300 group-hover/pin:scale-125"></div>
-              </div>
-              <div className="absolute top-[45%] left-[50%] cursor-pointer group/pin">
+              </button>
+              <button 
+                className="absolute top-[45%] left-[50%] cursor-pointer group/pin"
+                aria-label="View Munich Distribution Center"
+              >
                 <div className="h-6 w-6 bg-brand-blue/30 rounded-full animate-ping absolute -inset-1 opacity-75"></div>
                 <div className="h-4 w-4 bg-brand-blue rounded-full relative shadow-brand-shadow border-2 border-brand-border transition-transform duration-300 group-hover/pin:scale-125"></div>
-              </div>
-              <div className="absolute top-[60%] left-[80%] cursor-pointer group/pin">
+              </button>
+              <button 
+                className="absolute top-[60%] left-[80%] cursor-pointer group/pin"
+                aria-label="View Dubai Distribution Center"
+              >
                 <div className="h-6 w-6 bg-brand-blue/30 rounded-full animate-ping absolute -inset-1 opacity-75"></div>
                 <div className="h-4 w-4 bg-brand-blue rounded-full relative shadow-brand-shadow border-2 border-brand-border transition-transform duration-300 group-hover/pin:scale-125"></div>
-              </div>
-              <div className="absolute top-[42%] left-[45%] cursor-pointer group/pin">
+              </button>
+              <button 
+                className="absolute top-[42%] left-[45%] cursor-pointer group/pin"
+                aria-label="View Central Service Hub"
+              >
                 <div className="h-6 w-6 bg-brand-yellow/30 rounded-full animate-ping absolute -inset-1 opacity-75"></div>
                 <div className="h-4 w-4 bg-brand-yellow rounded-full relative shadow-[0_0_15px_#fce300] border-2 border-brand-border transition-transform duration-300 group-hover/pin:scale-125"></div>
-              </div>
+              </button>
             </div>
             
             {/* Search Overlay */}
-            <div className="absolute top-8 left-8 right-8 flex flex-col sm:flex-row gap-4">
+            <div className="absolute top-4 sm:top-8 left-4 right-4 sm:left-8 sm:right-8 flex flex-col sm:flex-row gap-4">
               <div className="flex-1 relative shadow-brand-shadow">
                 <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-brand-blue" />
                 <input 
-                   className="w-full bg-brand-surface border border-brand-border text-brand-text py-4 pl-12 pr-4 focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00] outline-none text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-300" 
+                   id="distributor-search"
+                   className="w-full bg-brand-surface/90 backdrop-blur-md border border-brand-border text-brand-text py-4 pl-12 pr-4 focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow outline-none text-xs font-bold uppercase tracking-wider rounded-lg transition-colors duration-300" 
                   placeholder="SEARCH BY CITY, COUNTRY OR POSTAL CODE" 
                   type="text"
+                  aria-label="Search distributors by location"
                 />
               </div>
               <motion.button 
                 whileTap={{ scale: 0.95 }}
-                className="bg-brand-yellow text-[#333333] px-8 py-4 font-bold uppercase tracking-tight hover:brightness-110 rounded-lg shadow-brand-shadow transition-all text-xs text-center"
+                className="bg-brand-yellow text-black px-8 py-4 font-bold uppercase tracking-tight hover:brightness-110 rounded-lg shadow-brand-shadow transition-all text-xs text-center"
+                aria-label="Filter results"
               >
                 Filter
               </motion.button>
             </div>
             
             {/* Map Legend */}
-            <div className="absolute bottom-8 left-8 flex flex-col sm:flex-row gap-4">
+            <div className="absolute bottom-4 sm:bottom-8 left-4 right-4 sm:left-8 flex flex-col sm:flex-row gap-4">
               <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-brand-border">
                 <div className="h-2.5 w-2.5 rounded-full bg-brand-blue shadow-brand-shadow"></div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-brand-text-muted">Certified Partner</span>
@@ -114,7 +129,7 @@ export function Distributors() {
           </div>
           
           {/* Distributor List Sidebar */}
-          <div className="lg:col-span-4 flex flex-col gap-4 overflow-y-auto max-h-[600px] lg:max-h-[700px] pr-2 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full">
+          <div className="lg:col-span-4 flex flex-col gap-4 overflow-y-auto max-h-[500px] sm:max-h-[600px] lg:max-h-[700px] pr-2 scrollbar-hide">
             
             {/* Distributor Card 1 */}
             <motion.div 
