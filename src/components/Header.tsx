@@ -11,8 +11,7 @@ export function Header() {
     { name: 'Distributors', path: '/distributors' },
     { name: 'Solutions', path: '/solutions' },
     { name: 'Brands', path: '/brands' },
-    { name: 'Resources', path: '/resources' },
-    { name: 'Blog', path: '/blog' }
+    { name: 'Resources', path: '/resources' }
   ];
 
   return (
@@ -49,9 +48,9 @@ export function Header() {
           <button className="hidden lg:flex items-center text-white/60 hover:text-brand-yellow hover:scale-110 active:scale-95 transition-all">
             <User className="w-5 h-5" />
           </button>
-          <button className="bg-brand-yellow text-black px-5 py-2.5 font-bold uppercase tracking-wider text-[11px] hover:brightness-110 shadow-[0_0_15px_rgba(252,227,0,0.3)] active:scale-95 transition-all hidden sm:block cursor-pointer">
+          <Link to="/contact" className="bg-brand-yellow text-black px-5 py-2.5 font-bold uppercase tracking-wider text-[11px] hover:brightness-110 shadow-[0_0_15px_rgba(252,227,0,0.3)] active:scale-95 transition-all hidden sm:block cursor-pointer">
             Request Quote
-          </button>
+          </Link>
           
           <button className="md:hidden text-white/80 hover:text-brand-yellow active:scale-95 transition-all cursor-pointer">
             <Menu className="w-6 h-6" />

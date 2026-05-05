@@ -39,8 +39,8 @@ export function Footer() {
         <div className="flex flex-col gap-3">
           <h5 className="text-white font-bold uppercase tracking-widest text-xs mb-3 border-b border-white/10 pb-2">Support</h5>
           <Link to="/distributors" className="text-white/60 text-sm hover:text-brand-yellow hover:translate-x-1 active:scale-95 transition-all py-1 inline-block transform origin-left">Distributors</Link>
-          <a href="#" className="text-white/60 text-sm hover:text-brand-yellow hover:translate-x-1 active:scale-95 transition-all py-1 inline-block transform origin-left">Resources</a>
-          <a href="#" className="text-white/60 text-sm hover:text-brand-yellow hover:translate-x-1 active:scale-95 transition-all py-1 inline-block transform origin-left">Contact Us</a>
+          <Link to="/resources" className="text-white/60 text-sm hover:text-brand-yellow hover:translate-x-1 active:scale-95 transition-all py-1 inline-block transform origin-left">Resources</Link>
+          <Link to="/contact" className="text-white/60 text-sm hover:text-brand-yellow hover:translate-x-1 active:scale-95 transition-all py-1 inline-block transform origin-left">Contact Us</Link>
           <a href="#" className="text-white/60 text-sm hover:text-brand-yellow hover:translate-x-1 active:scale-95 transition-all py-1 inline-block transform origin-left">Privacy Policy</a>
         </div>
 

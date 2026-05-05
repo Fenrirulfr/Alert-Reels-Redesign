@@ -47,9 +47,9 @@ export function Hero() {
               View Products
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <button className="border border-white/30 text-white px-8 py-3.5 font-bold uppercase tracking-wider text-sm hover:bg-white/10 active:scale-95 transition-all backdrop-blur-sm cursor-pointer">
+            <Link to="/solutions" className="border border-white/30 text-white px-8 py-3.5 font-bold uppercase tracking-wider text-sm hover:bg-white/10 active:scale-95 transition-all backdrop-blur-sm cursor-pointer flex items-center justify-center">
               Custom Solutions
-            </button>
+            </Link>
           </motion.div>
         </div>
       </div>

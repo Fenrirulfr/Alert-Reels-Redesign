@@ -13,6 +13,8 @@ import { Products } from './pages/Products';
 import { Distributors } from './pages/Distributors';
 import { Solutions } from './pages/Solutions';
 import { Brands } from './pages/Brands';
+import { Resources } from './pages/Resources';
+import { Contact } from './pages/Contact';
 
 export default function App() {
   return (
@@ -27,6 +29,8 @@ export default function App() {
               <Route path="/distributors" element={<Distributors />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/brands" element={<Brands />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
           <Footer />
